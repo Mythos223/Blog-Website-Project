@@ -1,0 +1,95 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.left-section,
+.right-section {
+  padding: 40px;
+  flex: 1;
+}
+
+.left-section {
+  background: linear-gradient(135deg, #f4f4f4 0%, #eaeaea 100%);
+  color: #666666;
+}
+
+.right-section {
+  background: #ffffff;
+  border-radius: 0 10px 10px 0;
+  color: #333333;
+}
+
+h1 {
+  color: #7289da;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #7289da;
+  margin-bottom: 20px;
+}
+
+.usrname,
+.passwrd {
+  color: #7289da;
+  font-weight: 600;
+}
+
+.input-field {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #b3b3b3;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #7289da;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #5a6fb2;
+}
+
+.forgot-pass {
+  text-align: right;
+  color: #7289da;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
+
+.forgot-pass:hover {
+  color: #b3a394;
+}
+
+.error {
+  color: red;
+  margin-bottom: 20px;
+}

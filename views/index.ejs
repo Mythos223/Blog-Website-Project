@@ -1,0 +1,138 @@
+<%- include("partials/header.ejs") %>
+
+<!-- Main Banner/Heading -->
+<section class="main-banner">
+  <h1>Positive Vibes Holistics</h1>
+  <p>Explore our latest thoughts on holistic wellness and positive living</p>
+</section>
+
+
+<!--Display Welcome Message After Successful Login/Registration-->
+ <!-- Popup Overlay and Content -->
+      <% if (locals.showWelcome && locals.welcomeMessage) { %>
+    <div id="welcomePopup" class="pop-overlay">
+      <div class="popup-content">
+        <span class="popup-close">&times;</span>
+        <div class="popup-body">
+          <% if (locals.user && locals.user.profilePicture) { %>
+          <img
+            src="/images/test.jpg"
+            class="popup-profile-picture"
+            alt="Profile Picture"
+          />
+          <% } %>
+          <h2><%= welcomeMessage %></h2>
+        </div>
+      </div> 
+    </div>
+    <% } %>
+
+
+<!-- Trending Posts Section (Carousel) -->
+<section class="trending-posts">
+  <h2>Trending Posts</h2>
+  <div id="trendingCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% if (trendingPosts && trendingPosts.length > 0) { %> 
+      <% trendingPosts.forEach((post, index) => { %>
+      <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+        <img
+          src="<%= post.image %>"
+          alt="<%= post.title %>"
+          class="d-block w-100"
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>
+            <a href="/posts/<%= post.id %>" class="text-white">
+              ><%= post.title %>
+            </a>
+            
+          </h5>
+          <p><%= post.excerpt %></p>
+        </div>
+      </div>
+      <% }); %> 
+      <% } else { %>
+      <p>No trending posts available at the moment.</p>
+      <% } %>
+    </div>
+
+
+    <!--Carousel Controls-->
+    <a
+      class="carousel-control-prev"
+      href="#trendingCarousel"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      class="carousel-control-next"
+      href="#trendingCarousel"
+      role="button"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</section>
+
+<!--Filter Section-->
+<section class="filters">
+  <h2>Filter Posts</h2>
+  <form method="GET" action="/">
+    <label for="topicFilter">Filter by Topic:</label>
+    <select name="topic" id="topicFilter">
+      <option value="all">All Topics</option>
+      <option value="holistic-wellness">Holistic Wellness</option>
+      <option value="positive-thinking">Positive Thinking</option>
+      <option value="natural-remedies">Natural Remedies</option>
+      <option value="lifestyle">Lifestyle</option>
+    </select>
+
+    <label for="sortBy">Sort by:</label>
+    <select name="sort" id="sortBy">
+      <option value="recent">Most Recent</option>
+      <option value="oldest">Oldest</option>
+    </select>
+
+    <button type="submit">Apply Filters</button>
+  </form>
+</section>
+
+
+<section class="recent-posts">
+  <h2>Recent Blog Posts</h2>
+  <div class="post-list-vertical">
+    <% if (posts && posts.length > 0) { %> 
+      <% posts.forEach(post => { %>
+    <div class="post-card-vertical">
+      <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
+      <p><%= post.excerpt %></p>
+      <small>Posted on <%= post.date %> by <%= post.author %></small>
+      <a href="/posts/<%= post.id %>">Read More</a>
+    </div>
+    <% }); %> 
+    <% } else { %>
+    <p>No blog posts available. Check back soon!</p>
+    <% } %>
+  </div>
+</section>
+
+
+<section class="categories">
+  <h2>Explore Topics</h2>
+  <div class="category-grid">
+    <a href="/category/holistic-wellness">Holistic Wellness</a>
+    <a href="/category/positive-thinking">Positive Thinking</a>
+    <a href="/category/natural-remedies">Natural Remedies</a>
+    <a href="/category/lifestyle">Lifestyle</a>
+  </div>
+</section>
+
+<%- include("partials/footer.ejs") %>
+
+

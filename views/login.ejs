@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/login.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%-include("partials/header.ejs") %>
+    <div class="container">
+      <div class="left-section">
+        <h2>What's New?</h2>
+        <p>Explore the latest features and updates.</p>
+        <ul>
+          <li>Exciting New Dashboard</li>
+          <li>Improved User Experience</li>
+          <li>Enhanced Security Features</li>
+        </ul>
+      </div>
+      <div class="right-section">
+        <h1>Sign In</h1>
+        <h2>Login to Your Account</h2>
+        <% if (errorMessage) { %>
+        <p class="error"><%= errorMessage %></p>
+        <% } %>
+        <form action="/login" method="post">
+          <div class="input-field">
+            <label class="usrname" for="username">Username or Email</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="input-field">
+            <label class="passwrd" for="Password">Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit" class="login-btn">Login</button>
+          <a href="#" class="forgot-pass">Forgot Password?</a>
+        </form>
+      </div>
+    </div>
+    <%-include("partials/footer.ejs") %>
+  </body>
+</html>

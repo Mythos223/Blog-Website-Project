@@ -1,0 +1,58 @@
+<%- include("partials/header.ejs") %>
+
+<!-- New Post Form Section -->
+<form method="POST" action="<%= post ? '/posts/edit/' + post.id : '/posts/new' %>">
+  <h1><%= post ? 'Edit Post' : 'Create New Post' %></h1>
+
+  <% if (errorMessage) { %>
+    <p style="color: red;"><%= errorMessage %></p>
+  <% } %>
+
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input
+      type="text"
+      name="title"
+      id="title"
+      value="<%= post ? post.title : '' %>"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="content">Content:</label>
+    <textarea name="content" id="content" rows="5" required><%= post ? post.content : '' %></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="image">Image URL:</label>
+    <input
+      type="text"
+      name="image"
+      id="image"
+      value="<%= post ? post.image : '' %>"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="author">Author:</label>
+    <input
+      type="text"
+      name="author"
+      id="author"
+      value="<%= post ? post.author : '' %>"
+      required
+    />
+  </div>
+
+  <button type="submit"><%= post ? 'Update Post' : 'Create Post' %></button>
+</form>
+
+<!-- Delete Post Button (Visible only when editing a post) -->
+<% if (post) { %>
+  <form method="POST" action="/posts/delete/<%= post.id %>">
+    <button type="submit" style="color: red;">Delete Post</button>
+  </form>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

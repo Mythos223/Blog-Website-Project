@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
+    />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/content.css" />
+  </head>
+  <body>
+    <!-- Include the header partial -->
+    <%- include('partials/header.ejs') %>
+
+    <main class="container">
+      <div class="register-container">
+        <h1 class="mb-4">Create New Account</h1>
+
+        <form action="/register" method="POST">
+          <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input
+              type="text"
+              class="form-control feedback-input"
+              id="firstname"
+              name="firstName"
+              placeholder="Enter your first name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input
+              type="text"
+              class="form-control feedback-input"
+              id="lastname"
+              name="lastName"
+              placeholder="Enter your last name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              class="form-control feedback-input"
+              id="username"
+              name="userName"
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control feedback-input"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control feedback-input"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              class="form-control feedback-input"
+              id="confirm-password"
+              name="confirmPassword"
+              placeholder="Confirm your password"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            Register
+          </button>
+        </form>
+
+        <p class="mt-4">
+          Already have an account? <a href="/login">Log in here</a>
+        </p>
+      </div>
+    </main>
+
+    <!-- Include the footer partial -->
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>

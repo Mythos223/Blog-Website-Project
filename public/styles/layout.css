@@ -1,0 +1,553 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+header,
+footer {
+  flex: 0 0 auto;
+}
+
+main {
+  text-align: center;
+  padding: 5vmin;
+  flex: 1 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  color: grey;
+}
+
+.profile {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f4fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-input {
+  width: 100%;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 2px solid #3f51b5; /* Indigo */
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  color: #333;
+}
+
+.feedback-input::placeholder {
+  color: #999; /* Placeholder text color */
+}
+
+.feedback-input:focus {
+  border: #3f51b5; /* Indigo */
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: #3f51b5; /* Indigo */
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #303f9f; /* Darker Indigo */
+}
+
+/*---------- Bootstrap Navbar Styling ----------*/
+.navbar-logo {
+  padding: 15px;
+  color: #fff;
+}
+
+.navbar-mainbg {
+  background: linear-gradient(135deg, #3f51b5, #1a237e); /* Indigo gradient */
+  padding: 0;
+}
+
+#navbarSupportedContent {
+  overflow: hidden;
+  position: relative;
+}
+
+#navbarSupportedContent ul {
+  padding: 0;
+  margin: 0;
+}
+
+#navbarSupportedContent ul li a i {
+  margin-right: 10px;
+}
+
+#navbarSupportedContent li {
+  list-style-type: none;
+  float: left;
+}
+
+#navbarSupportedContent ul li a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+  padding: 15px 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+#navbarSupportedContent > ul > li.active > a {
+  color: #fff;
+  background-color: transparent;
+}
+
+#navbarSupportedContent a:not(:only-child):after {
+  content: "\f105";
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 14px;
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
+  transition: 0.3s;
+}
+
+#navbarSupportedContent .active > a:not(:only-child):after {
+  transform: rotate(90deg);
+}
+
+.hori-selector {
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+  background-color: #fff;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-top: 10px;
+}
+
+.hori-selector .right,
+.hori-selector .left {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  bottom: 10px;
+}
+
+.hori-selector .right {
+  right: -25px;
+}
+
+.hori-selector .left {
+  left: -25px;
+}
+
+.hori-selector .right:before,
+.hori-selector .left:before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #3f51b5; /* Indigo */
+}
+
+.hori-selector .right:before {
+  bottom: 0;
+  right: -25px;
+}
+
+.hori-selector .left:before {
+  bottom: 0;
+  left: -25px;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-custom {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+  }
+  .navbar-expand-custom .navbar-nav {
+    flex-direction: row;
+  }
+  .navbar-expand-custom .navbar-toggler {
+    display: none;
+  }
+  .navbar-expand-custom .navbar-collapse {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 991px) {
+  #navbarSupportedContent ul li a {
+    padding: 12px 30px;
+  }
+  .hori-selector {
+    margin-top: 0;
+    margin-left: 10px;
+    border-radius: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+  .hori-selector .left,
+  .hori-selector .right {
+    right: 10px;
+  }
+  .hori-selector .left {
+    top: -25px;
+    left: auto;
+  }
+  .hori-selector .right {
+    bottom: -25px;
+  }
+  .hori-selector .left:before {
+    left: -25px;
+    top: -25px;
+  }
+  .hori-selector .right:before {
+    bottom: -25px;
+    left: -25px;
+  }
+}
+
+/* General Reset */
+body, h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif; /* Use Roboto font */
+}
+
+/* Main Banner */
+.main-banner {
+  text-align: center;
+  padding: 2rem 0;
+  background-color: #7289da; /* Indigo background */
+  color: #fff; /* White text */
+}
+
+.main-banner h1 {
+  font-size: 2.5rem;
+}
+
+.main-banner p {
+  font-size: 1.2rem;
+}
+
+/* Trending Posts Section */
+.trending-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.trending-posts h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Carousel Styles */
+.carousel-inner img {
+  max-height: 400px; /* Control height of carousel images */
+  object-fit: cover; /* Cover the area */
+}
+
+/* Filters Section */
+.filters {
+  position: absolute;
+  right: 20px; /* Position from the right */
+  top: 100px; /* Position below the header */
+  width: 200px; /* Fixed width for filter section */
+  background: #f4f4f4; /* Light background */
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  z-index: 1;  /* Lower z-index
+}
+
+.filters h2 {
+  font-size: 1.5rem;
+}
+
+.filters label {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.filters select, .filters button {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Recent Posts Section */
+.recent-posts {
+  margin-top: 2rem;
+}
+
+.recent-posts h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.post-list-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card-vertical {
+  background: #fff; /* White background for post cards */
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.post-card-vertical h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-card-vertical a {
+  text-decoration: none; /* Remove underline */
+  color: #7289da; /* Link color */
+}
+
+.post-card-vertical small {
+  display: block;
+  color: #666; /* Subtle text for date and author */
+}
+
+/* Categories Section */
+.categories {
+  margin-top: 2rem;
+}
+
+.categories h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.category-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-grid a {
+  flex: 1;
+  background: #f4f4f4; /* Light background */
+  margin-right: 10px;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #333; /* Dark text */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.category-grid a:last-child {
+  margin-right: 0; /* Remove margin on the last item */
+}
+
+.category-grid a:hover {
+  background: #7289da; /* Change background on hover */
+  color: #fff; /* White text on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .filters {
+    position: static; /* Position static on smaller screens */
+    width: auto; /* Allow auto width */
+    margin: 1rem 0; /* Margin around filter section */
+  }
+}
+
+
+.post-preview {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-form {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Footer Styling */
+footer {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #3f51b5, #1a237e); /* Indigo gradient */
+  padding: 50px 50px 150px; /* Adds extra padding to ensure no content overlap */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden; /* Ensures no overlap */
+}
+
+footer .social_icon,
+footer .menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-direction: row; /* Ensures horizontal alignment */
+}
+
+footer .social_icon ul,
+footer .menu ul {
+  display: flex; /* Horizontal alignment */
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+footer .social_icon li,
+footer .menu li {
+  list-style: none;
+  margin: 0 15px; /* Adds spacing between icons and links */
+}
+
+footer .social_icon li a {
+  font-size: 2em;
+  color: #ccc;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+footer .social_icon li a:hover {
+  transform: translateY(-10px);
+  color: #fff;
+  text-decoration: none;
+}
+
+footer .menu li a {
+  font-size: 1.2em;
+  color: #ccc;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.3s;
+  text-decoration: none;
+  opacity: 0.75;
+}
+
+footer .menu li a:hover {
+  opacity: 1;
+  color: #fff;
+}
+
+footer p {
+  color: white;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+footer .copyright {
+  color: white;
+}
+
+/* Wave Animation */
+footer .wave {
+  position: absolute;
+  bottom: 0; /* Ensures the wave stays at the bottom */
+  left: 0;
+  width: 100%;
+  height: 100px; /* Reduces height of wave to not block content */
+  background: url(https://i.ibb.co/rZt4Nhg/wave.png);
+  background-size: 1000px 100px;
+}
+
+footer .wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWave 4s linear infinite;
+}
+
+footer .wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animateWave_02 4s linear infinite;
+}
+
+footer .wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 0;
+  animation: animateWave 3s linear infinite;
+}
+
+footer .wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animateWave_02 3s linear infinite;
+}
+
+@keyframes animateWave {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-position-x: 0;
+  }
+}
+
+@keyframes animateWave_02 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
